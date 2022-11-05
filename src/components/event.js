@@ -78,11 +78,11 @@ const onGoogleLoginFailure = (res) => {
   return (
     <>
       <div className="events">
-        <table className="table">
-          <thead>
-            <th>EVENTS</th>
-          </thead>
-          <tbody>
+        <div className="table">
+          <div className="eventsblock">
+            <div>EVENTS</div>
+          </div>
+          <div>
             <div className="table-body">
               <a
                 href="#"
@@ -129,8 +129,8 @@ const onGoogleLoginFailure = (res) => {
                 MASHAL
               </a>
             </div>
-          </tbody>
-        </table>
+          </div>
+        </div>
       </div>
       <EventCard data={content} close={handleClose} />
 
