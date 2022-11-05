@@ -1,35 +1,59 @@
 import "./style.css";
 import React, { useState, useEffect } from "react";
 import EventCard from "./EventCard";
-import {useNavigate} from "react-router-dom"
-import { GoogleLogin } from 'react-google-login';
+import { useNavigate } from "react-router-dom";
+import { GoogleLogin } from "react-google-login";
 // import GoogleLoginPage from "./GoogleLoginPage";
 // import EventFAB from "./EventFAB";
-import './Fab.css';
+import "./Fab.css";
 
-const clientId = process.env.REACT_APP_CLIENT_ID
-const scope='https://www.googleapis.com/auth/user.birthday.read https://www.googleapis.com/auth/user.addresses.read https://www.googleapis.com/auth/user.organization.read'
-
+const clientId = process.env.REACT_APP_CLIENT_ID;
+const scope =
+  "https://www.googleapis.com/auth/user.birthday.read https://www.googleapis.com/auth/user.addresses.read https://www.googleapis.com/auth/user.organization.read";
 
 function Event() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [active, setActive] = useState(false);
   const [choosed, setChoosed] = useState(0);
   const [isinittial, setIsinittial] = useState(false);
-  const [regActive, setRegActive] = useState(false);
-  
+  const [regActive, setRegActive] = useState(2);
+  const [res,setRes] = useState();
+  //1 for register, 2 for Glogin
+  const [gloginsuccess, setGloginsuccess] = useState(0);
+
   const onGoogleLoginSuccess = (res) => {
     console.log("SUCCESS!!! Current User: ", res);
-    window.sessionStorage.setItem("profileData", JSON.stringify(res.profileObj));
+    window.sessionStorage.setItem(
+      "profileData",
+      JSON.stringify(res.profileObj)
+    );
     window.sessionStorage.setItem("tokenId", res.tokenId);
-    navigate("/register", {state: { profileData: res.profileObj, token: res.tokenId}})
-}
+    // navigate("/register", {state: { profileData: res.profileObj, token: res.tokenId}})
+    setGloginsuccess(1);
+    setRes(res);
+  };
 
-const onGoogleLoginFailure = (res) => {
+  const onGoogleLoginFailure = (res) => {
     console.log("FAILURE!!! res: ", res);
-}
+    setGloginsuccess(0);
+  };
 
-  
+  useEffect(() => {
+    if (!isinittial) {
+      console.log("Glogin success: ", gloginsuccess);
+      return;
+    }
+    if (gloginsuccess == 1) {
+      setRegActive(1);
+    } else {
+      setRegActive(2);
+    }
+  }, [gloginsuccess]);
+
+  useEffect(() => {
+    console.log("RegActive: ", regActive);
+  }, [regActive]);
+
   const toggle = () => {
     document
       .getElementsByClassName("event-detais-card")[0]
@@ -37,10 +61,8 @@ const onGoogleLoginFailure = (res) => {
     console.log("Single G clicked");
   };
 
-
   const [content, setContent] = useState(-1);
   function ani(e) {
-
     console.log(e);
     document
       .getElementsByClassName("fab-button")[0]
@@ -48,32 +70,33 @@ const onGoogleLoginFailure = (res) => {
     document
       .getElementsByClassName("fab-container")[0]
       .classList.toggle("fab-container-active");
-
   }
 
   useEffect(() => {
-    if(isinittial){
-    toggle();
-    }else{
+    if (isinittial) {
+      toggle();
+    } else {
       setIsinittial(true);
     }
-    if(active){
-      setRegActive(false);
-    }else{
-      setTimeout(() => {
-        setRegActive(true);
-      }, 1000);
-    }
-
-
+    // if (active) {
+    //   setRegActive(false);
+    // } else {
+    //   setTimeout(() => {
+    //     setRegActive(true);
+    //   }, 1000);
+    // }
   }, [active]);
   const handleClose = () => {
     if (active) {
-              setActive(false);
-              setChoosed(0);
-              setContent(-1);
-            }
-  }
+      setActive(false);
+      setChoosed(0);
+      setContent(-1);
+    }
+  };
+
+
+
+  
 
   return (
     <>
@@ -168,8 +191,8 @@ const onGoogleLoginFailure = (res) => {
                   position: "relative",
                   // fontSize: "px",
                   textAlign: "center",
-                  marginTop:"0px",
-                  marginBottom:"40px",
+                  marginTop: "0px",
+                  marginBottom: "40px",
                   display: "block",
                 }}
               >
@@ -261,20 +284,34 @@ const onGoogleLoginFailure = (res) => {
           <div className="fab-circular-ring"></div>
         </div>
       </div>
-      <div className="register-button" style={{display:(!regActive)?"none":"unset"}}>
+      <div
+        className="register-button"
+        style={{ display: regActive === 2 ? "unset" : "none" }}
+      >
         {/* <Link to="/register">Register</Link>
          */}
-         <GoogleLogin
-              accessType="online"
-              disabled={false}
-              client_id={clientId}  // your Google app client ID
-              buttonText="Sign in"
-              onSuccess={onGoogleLoginSuccess} // perform your user logic here
-              onFailure={onGoogleLoginFailure} // handle errors here
-              cookiePolicy={"single-host-origin"}
-              isSignedIn={true}
-              scope={scope}
-          />
+        <GoogleLogin
+          accessType="online"
+          disabled={false}
+          client_id={clientId} // your Google app client ID
+          buttonText="Sign in"
+          onSuccess={onGoogleLoginSuccess} // perform your user logic here
+          onFailure={onGoogleLoginFailure} // handle errors here
+          cookiePolicy={"single-host-origin"}
+          isSignedIn={true}
+          scope={scope}
+        />
+      </div>
+      <div
+        className="main-reg-button"
+        style={{ display: regActive === 1 ? "flex" : "none" }}
+        onClick = {() => {
+          console.log("Going to Navigate With Res = ");
+          console.log(res);
+          navigate("/register", {state: { profileData: res.profileObj, token: res.tokenId}})
+        }}
+      >
+        <h1>Register</h1>
       </div>
     </>
   );

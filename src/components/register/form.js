@@ -5,6 +5,8 @@ import { useForm } from 'react-hook-form';
 import "./form.css"
 import { GoogleLogin } from 'react-google-login';
 import { useCallback } from 'react';
+
+import { useNavigate } from 'react-router-dom';
 // import { post } from 'utils/sdk';
 import axios from 'axios';
 import {gapi} from "gapi-script"
@@ -13,7 +15,7 @@ const clientId = "868476725043-56q2l17h7bf2a1fpvkqp04t5br7mti4p.apps.googleuserc
 const scope='https://www.googleapis.com/auth/user.birthday.read https://www.googleapis.com/auth/user.addresses.read https://www.googleapis.com/auth/user.organization.read'
 
 export default function Form() {
-
+    const navigate = useNavigate();
     const { register, handleSubmit, watch, formState: { errors } } = useForm()
     const onSubmit = data => console.log(data);
 
@@ -40,9 +42,10 @@ export default function Form() {
             "Authorization": token
         }
         const data = profdata;
-        axios.post("http://eeswebsite.herokuapp.com/auth/google-login", header, data).then((resp)=>{
-            console.log(resp);
-        });
+        const resp = axios.post("http://eeswebsite.herokuapp.com/auth/google-login", header, data)
+        console.log("resp = ",resp);
+        console.log("Going to Home");
+        navigate("/");
     }
     
   return (
