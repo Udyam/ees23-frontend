@@ -1,10 +1,9 @@
-import "./style.css";
 import React, { useState, useEffect } from "react";
 import EventCard from "./EventCard";
 import { useNavigate } from "react-router-dom";
 import { GoogleLogin } from "react-google-login";
-// import GoogleLoginPage from "./GoogleLoginPage";
-// import EventFAB from "./EventFAB";
+import "./button.css";
+import "./style.css";
 import "./Fab.css";
 
 const clientId = process.env.REACT_APP_CLIENT_ID;
@@ -17,7 +16,7 @@ function Event() {
   const [choosed, setChoosed] = useState(0);
   const [isinittial, setIsinittial] = useState(false);
   const [regActive, setRegActive] = useState(2);
-  const [res,setRes] = useState();
+  const [res, setRes] = useState();
   //1 for register, 2 for Glogin
   const [gloginsuccess, setGloginsuccess] = useState(0);
 
@@ -28,7 +27,6 @@ function Event() {
       JSON.stringify(res.profileObj)
     );
     window.sessionStorage.setItem("tokenId", res.tokenId);
-    // navigate("/register", {state: { profileData: res.profileObj, token: res.tokenId}})
     setGloginsuccess(1);
     setRes(res);
   };
@@ -50,9 +48,6 @@ function Event() {
     }
   }, [gloginsuccess]);
 
-  useEffect(() => {
-    console.log("RegActive: ", regActive);
-  }, [regActive]);
 
   const toggle = () => {
     document
@@ -93,10 +88,6 @@ function Event() {
       setContent(-1);
     }
   };
-
-
-
-  
 
   return (
     <>
@@ -284,34 +275,44 @@ function Event() {
           <div className="fab-circular-ring"></div>
         </div>
       </div>
-      <div
-        className="register-button"
-        style={{ display: regActive === 2 ? "unset" : "none" }}
-      >
-        {/* <Link to="/register">Register</Link>
-         */}
-        <GoogleLogin
-          accessType="online"
-          disabled={false}
-          client_id={clientId} // your Google app client ID
-          buttonText="Sign in"
-          onSuccess={onGoogleLoginSuccess} // perform your user logic here
-          onFailure={onGoogleLoginFailure} // handle errors here
-          cookiePolicy={"single-host-origin"}
-          isSignedIn={true}
-          scope={scope}
-        />
-      </div>
-      <div
-        className="main-reg-button"
-        style={{ display: regActive === 1 ? "flex" : "none" }}
-        onClick = {() => {
-          console.log("Going to Navigate With Res = ");
-          console.log(res);
-          navigate("/register", {state: { profileData: res.profileObj, token: res.tokenId}})
-        }}
-      >
-        <h1>Register</h1>
+      <div className="animated-button-container">
+        <div
+          className="register-button"
+          style={{ display: regActive === 2 && !active ? "unset" : "none" }}
+        >
+          <GoogleLogin
+            accessType="online"
+            disabled={false}
+            client_id={clientId} // your Google app client ID
+            buttonText="Sign in"
+            onSuccess={onGoogleLoginSuccess} // perform your user logic here
+            onFailure={onGoogleLoginFailure} // handle errors here
+            cookiePolicy={"single-host-origin"}
+            isSignedIn={true}
+            scope={scope}
+          />
+        </div>
+        <div
+          class="animated-button1"
+          onClick={() => {
+            console.log("Going to Navigate With Res = ");
+            console.log(res);
+            navigate("/register", {
+              state: { profileData: res.profileObj, token: res.tokenId },
+            });
+          }}
+          style={{
+            display: regActive === 1 && !active ? "" : "none",
+            right: "5%",
+            zIndex: "1000",
+          }}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Register
+        </div>
       </div>
     </>
   );
