@@ -6,7 +6,7 @@ import Home from "./components/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { gapi } from "gapi-script";
 
-const clientId = process.env.GOOGLE_CLIENT_ID;
+const clientId = process.env.REACT_APP_CLIENT_ID;
 
 function App() {
   useEffect(() => {
