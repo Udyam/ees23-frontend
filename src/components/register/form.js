@@ -11,7 +11,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import {gapi} from "gapi-script"
 
-const clientId = "868476725043-56q2l17h7bf2a1fpvkqp04t5br7mti4p.apps.googleusercontent.com"
+
+const clientId = process.env.REACT_APP_CLIENT_ID;
 const scope='https://www.googleapis.com/auth/user.birthday.read https://www.googleapis.com/auth/user.addresses.read https://www.googleapis.com/auth/user.organization.read'
 
 export default function Form() {
