@@ -41,13 +41,16 @@ function Event() {
       console.log("Glogin success: ", gloginsuccess);
       return;
     }
-    if (gloginsuccess == 1) {
-      setRegActive(1);
+    if (gloginsuccess === 1) {
+      if (
+        window.localStorage.getItem("registeredEmail-" + res.profileObj.email)
+      ) {
+        setRegActive(-1);
+      } else setRegActive(1);
     } else {
       setRegActive(2);
     }
   }, [gloginsuccess]);
-
 
   const toggle = () => {
     document
