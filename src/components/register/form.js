@@ -199,58 +199,56 @@ export default function Form() {
                     readOnly
                   />
 
-                  <input
-                    type="text"
-                    {...register("email")}
-                    value={JSON.parse(profileData).email}
-                    placeholder={JSON.parse(profileData).email}
-                    readOnly
-                  />
-                  <input
-                    type="text"
-                    {...register("phone_number", { valueAsNumber: true })}
-                    placeholder="Whatsapp Number"
-                    required
-                  />
-                  <input
-                    type="text"
-                    list="all_colleges"
-                    {...register("college")}
-                    placeholder="College/Institute"
-                    name="college"
-                    required
-                  />
-                  <Collegelist id="all_colleges" />
-                  <select id="years" {...register("year")} required>
-                    <option
-                      id="select-heading"
-                      value="Choose Year"
-                      disabled
-                      selected
-                      hidden
-                    >
-                      Year
-                    </option>
-                    <option value="FIRST">First</option>
-                    <option value="SECOND">Second</option>
-                    <option value="THIRD">Third</option>
-                    <option value="FOURTH">Fourth</option>
-                    <option value="FIFTH">Fifth</option>
-                  </select>
-                  <input
-                    type="text"
-                    {...register("branch")}
-                    placeholder="Branch"
-                    required
-                  />
-                  <AnimatedButton className="signinbtn" text={"Register"} />
-                  <ToastContainer  className="form-toast"/>
-                </form>
-              </>
-            )}
-          </div>
-          <div className="col-right">
-            <img className="formimg" src={logo} alt="" />
+                      <input
+                        type="text"
+                        {...register("email")}
+                        value={JSON.parse(profileData).email}
+                        placeholder={JSON.parse(profileData).email}
+                        readOnly
+                      />
+                      <input
+                        type="text"
+                        {...register("phone_number", { valueAsNumber: true })}
+                        placeholder="Whatsapp Number"
+                        required
+                      />
+                      <input
+                        type="text"
+                        list="all_colleges"
+                        {...register("college")}
+                        placeholder="College/Institute"
+                        name="college"
+                        required
+                      />
+                      <Collegelist id="all_colleges" />
+                      <select 
+                        id="years"
+                        {...register("year")}
+                        required
+                      >
+                        <option value="" disabled selected hidden>Year</option>
+                        <option value="FIRST">First</option>
+                        <option value="SECOND">Second</option>
+                        <option value="THIRD">Third</option>
+                        <option value="FOURTH">Fourth</option>
+                        <option value="FIFTH">Fifth</option>
+                      </select>
+                      <input
+                        type="text"
+                        {...register("branch")}
+                        placeholder="Branch"
+                        required
+                      />
+                      <AnimatedButton className="signinbtn" text={"Register"} />
+                      <ToastContainer />
+                    </form>
+                  </>
+                )}
+              </div>
+              <div className="col-right">
+                <img className="formimg" src={logo} alt="" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
