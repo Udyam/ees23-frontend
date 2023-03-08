@@ -31,7 +31,7 @@ const TeamMemberName = [
     'Mauli Gupta',
     'Ashutosh Awasthi'
   ],
-  ['Ayushi Gupta', 'Ankit', 'Shreyansh Jain', 'Shubham Kumar', 'Mohit Singh', 'Riya Chauhan', 'Amit Kumar', 'Harsh Kumar', 'Aditya Mishra', 'Anshu Soni', 'Shivam Raj', 'Harsh Saini', 'Shivom', 'Vaatsalya Sinha', 'Nikhil Aggarwal', 'Rajat Shukla'],
+  ['Ayushi Gupta', 'Ankit', 'Shreyansh Jain', 'Shubham Kumar', 'Mohit Singh', 'Riya Chauhan', 'Amit Kumar', 'Harsh Kumar', 'Anshu Soni', 'Shivam Raj', 'Harsh Saini', 'Shivom', 'Vaatsalya Sinha', 'Rajat Shukla'],
   ['Avinash Singh', 'Bhavna Chavan', 'Priyanshu', 'Divyanshu', 'Ravi Kumar Meena', 'Jaya Kedia', 'Anupam Shukla', 'Vaibhav Gupta', 'Harshit Anand', 'Anshu Kumar', 'Utkarsh Kumar', 'Aditya chandel', 'Aditya kumar', 'Mendapara Khelankumar', 'Aryan Sinha', 'Rakshit Sawhney', 'Ayush Singh']
 ];
 const MemberImage = [
@@ -146,13 +146,11 @@ const MemberImage = [
     '/assets/TeamsSectionImages/Riya Chauhan.jpg',
     '/assets/TeamsSectionImages/Amit Kumar.jpg',
     '/assets/TeamsSectionImages/Harsh Kumar.jpg',
-    '/assets/TeamsSectionImages/Aditya Mishra.jpeg',
     '/assets/TeamsSectionImages/Anshu Soni.jpg',
     '/assets/TeamsSectionImages/Shivam Raj.jpg',
     '/assets/TeamsSectionImages/Harsh Saini.jpg',
     '/assets/TeamsSectionImages/Shivom.jpg',
     '/assets/TeamsSectionImages/Vaatsalya Sinha.jpg',
-    '/assets/TeamsSectionImages/Nikhil Aggarwal.jpeg',
     '/assets/TeamsSectionImages/Rajat Shukla.jpg'
   ],
   [
@@ -207,7 +205,7 @@ const Designation = [
     'Co-Coordinator',
     'Co-Coordinator'
   ],
-  ['Head', 'Head', 'Coordinator', 'Coordinator', 'Coordinator', 'Co-Coordinator', 'Co-Coordinator', 'Co-Coordinator', 'Co-Coordinator', 'Co-Coordinator', 'Co-Coordinator', 'Co-Coordinator', 'Co-Coordinator', 'Co-Coordinator', 'Co-Coordinator', 'Co-Coordinator'],
+  ['Head', 'Head', 'Coordinator', 'Coordinator', 'Coordinator', 'Co-Coordinator', 'Co-Coordinator', 'Co-Coordinator', 'Co-Coordinator', 'Co-Coordinator', 'Co-Coordinator', 'Co-Coordinator', 'Co-Coordinator', 'Co-Coordinator'],
   ['Head', 'Coordinator', 'Co-Coordinator', 'Co-Coordinator', 'Co-Coordinator', 'Co-Coordinator', 'Co-Coordinator', 'Co-Coordinator', 'Co-Coordinator', 'Co-Coordinator', 'Co-Coordinator', 'Co-Coordinator', 'Co-Coordinator', 'Co-Coordinator', 'Co-Coordinator', 'Co-Coordinator', 'Co-Coordinator']
 ];
 const TeamMemberDetails = [
@@ -242,7 +240,7 @@ const TeamMemberDetails = [
     'Second Yearite',
     'Second Yearite'
   ],
-  ['Third Yearite', 'Third Yearite', 'Third Yearite', 'Third Yearite', 'Third Yearite', 'Second Yearite', 'Second Yearite', 'Second Yearite', 'Second Yearite', 'Second Yearite', 'Second Yearite', 'Second Yearite', 'Second Yearite', 'Second Yearite', 'Second Yearite', 'Second Yearite'],
+  ['Third Yearite', 'Third Yearite', 'Third Yearite', 'Third Yearite', 'Third Yearite', 'Second Yearite', 'Second Yearite', 'Second Yearite', 'Second Yearite', 'Second Yearite', 'Second Yearite', 'Second Yearite', 'Second Yearite', 'Second Yearite'],
   ['Third Yearite', 'Third Yearite', 'Second Yearite', 'Second Yearite', 'Second Yearite', 'Second Yearite', 'Second Yearite', 'Second Yearite', 'Second Yearite', 'Second Yearite', 'Second Yearite', 'Second Yearite', 'Second Yearite', 'Second Yearite', 'Second Yearite', 'Second Yearite', 'Second Yearite']
 ];
 const ContactMail = [
@@ -336,13 +334,11 @@ const ContactMail = [
     'riya.chauhan.ece21@itbhu.ac.in',
     'amit.kumar.ece21@itbhu.ac.in',
     'harsh.kumar.ece21@itbhu.ac.in',
-    'aditya.mishra.ece21@itbhu.ac.in',
     'anshu.soni.ece21@iitbhu.ac.in',
     'shivam.raj.ece21@itbhu.ac.in',
     'harsh.saini.ece21@itbhu.ac.in',
     'shivom.student.ece21@itbhu.ac.in',
     'vaatsalya.sinha.ece21@itbhu.ac.in',
-    'nikhil.aggarwa.ece21@itbhu.ac.in',
     'rajat.shukla.ece21@itbhu.ac.in'
   ],
   [
@@ -477,13 +473,11 @@ const ContactInstagram = [
     'https://www.instagram.com/_riyachauhan_09/',
     'https://instagram.com/1310amit21?igshid=ZDdkNTZiNTM=',
     'https://www.instagram.com/_harsh.1510_/',
-    'https://instagram.com/iaditya1441?igshid=ZDdkNTZiNTM=',
     'https://www.instagram.com/',
     'https://instagram.com/shivamraj0812?igshid=ZDdkNTZiNTM=',
     'https://instagram.com/sainiharsh2908?igshid=MDE2OWE1N2Q=',
     'https://instagram.com/shivom6516?igshid=ZDdkNTZiNTM=',
     'https://www.instagram.com/vaatsalya_sinha/',
-    'https://www.instagram.com/nikhilaggarwal.__/',
     'https://www.instagram.com/apu.7.7/?next=%2F'
   ],
   [
@@ -618,13 +612,11 @@ const ContactLinkedIn = [
     'https://www.linkedin.com/in/riya-chauhan-867592230/',
     'https://www.linkedin.com/in/amit-kumar-4-year-b-tech-electronics-engineering-a02508230',
     'https://www.linkedin.com/mwlite/in/harsh-kumar-ba799925b',
-    'https://www.linkedin.com/in/aditya-mishra-8064481b8',
     'https://www.linkedin.com/in/anshu-soni-3975a0229',
     'https://www.linkedin.com/in/shivam-raj-892233243',
     'https://www.linkedin.com/in/harsh-saini-092353230/',
     'https://www.linkedin.com/in/shivom-387607224',
     'https://www.linkedin.com/in/ vaatsalya-sinha-4-year-b-tech-electronics-engineering-887752263',
-    'https://www.linkedin.com/in/nikhil-aggarwal-92819b235/',
     'https://www.linkedin.com/in/rajat-shukla-9a0534230'
   ],
   [
