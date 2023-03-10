@@ -83,7 +83,7 @@ const DashBoard = () => {
       })
       .then((res) => {
         console.log(res.data);
-
+        setShowForm(0);
         setTimeout(() => {
           toast.success('Registered Successfully', {
             theme: 'dark',
