@@ -34,7 +34,7 @@ const DashBoard = () => {
       .catch((error) => console.log(error));
 
     axios
-      .get('http://udyam.pythonanywhere.com/api/teams/user/', { headers: { Authorization: `Token ${token}` } })
+      .get('http://udyam.pythonanywhere.com/api/teams/user/', { headers: { Authorization: `Token ${newUser.token}` } })
       .then((res) => {
         console.log(res);
         setTeamData(res.data);
@@ -55,8 +55,8 @@ const DashBoard = () => {
     teamname: 'teamName',
     event: event,
     leader: user.email,
-    member1: null,
-    member2: null
+    member1: '',
+    member2: ''
   });
 
   const handle = (e) => {
@@ -217,7 +217,7 @@ const DashBoard = () => {
                 <input id="event" type="text" value={event} readOnly></input>
                 {event === 'Funckit' && user.year !== 'FIRST' ? (
                   <>
-                    <input id="leader" type="text" value={user.email} placeholder="Team Leader" readOnly></input>
+                    <input id="leader" type="text" value="You're not eligible" placeholder="Team Leader" readOnly></input>
                   </>
                 ) : (
                   <>
