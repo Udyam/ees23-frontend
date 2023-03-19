@@ -153,45 +153,28 @@ function Events() {
 
           <div className="token-event" onClick={eventName}>
             <div className="0 digism event-name" onClick={checkNav}>
-              <a href="#" className="0">
-                {/* {' '} */}
-                Digisim
-              </a>
+              <div className="0 event-name-item"> Digisim </div>
             </div>
             <div className="1 ichip event-name" onClick={checkNav}>
-              <a href="#" className="1">
-                I-Chip
-              </a>
+              <div className="1 event-name-item"> I-Chip </div>
             </div>
             <div className="2 devbits event-name" onClick={checkNav}>
-              <a href="#" className="2">
-                DevBits
-              </a>
+              <div className="2 event-name-item"> DevBits </div>
             </div>
             <div className="3 commnet event-name" onClick={checkNav}>
-              <a href="#" className="3">
-                CommNet
-              </a>
+              <div className="3 event-name-item"> CommNet </div>
             </div>
             <div className="4 xiota event-name" onClick={checkNav}>
-              <a href="#" className="4">
-                X-Iot-A
-              </a>
+              <div className="4 event-name-item"> X-Iot-A </div>
             </div>
             <div className="5 cassandra event-name" onClick={checkNav}>
-              <a href="#" className="5">
-                Cassandra
-              </a>
+              <div className="5 event-name-item"> Cassandra </div>
             </div>
             <div className="6 mosaic event-name" onClick={checkNav}>
-              <a href="#" className="6">
-                Mosaic
-              </a>
+              <div className="6 event-name-item"> Mosaic </div>
             </div>
             <div className="7 funckit event-name" onClick={checkNav}>
-              <a href="#" className="7">
-                Funckit
-              </a>
+              <div className="7 event-name-item"> Funckit </div>
             </div>
           </div>
         </div>

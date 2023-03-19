@@ -97,7 +97,7 @@ const Navbar = () => {
                 )}
               </li>
               <li className="menu-item" onClick={nameOfEvents}>
-                <a href="#">Events</a>
+                <div className="mobnavevents">Events</div>
               </li>
               {slideUdyam && (
                 <div className="event-names">
@@ -193,10 +193,10 @@ const Navbar = () => {
                 )}
               </li>
               <li>
-                <a href="#events" onClick={showEvents}>
+                <div className="navevents" onClick={showEvents}>
                   Events
                   <BiChevronDown style={{ color: '#fff' }} />
-                </a>
+                </div>
               </li>
               <li>
                 <HashLink to="/#sponsors">
