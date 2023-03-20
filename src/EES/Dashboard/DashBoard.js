@@ -10,9 +10,6 @@ import { FaEdit } from 'react-icons/fa';
 import { RiDeleteBin5Line } from 'react-icons/ri';
 
 const DashBoard = () => {
-  // var newUser = { name: 'Default', email: 'ankur.agrawal.ece20@itbhu.ac.in', college: 'null', year: 'Part II', phone: '1234567890', referral: 'default#EES-10000', radianite_points: 0, token: 'd221d7afdf288fc097ff321d77154de4b3b6a24e' };
-  // window.sessionStorage.setItem('profileData', JSON.stringify(newUser));
-
   const [user, setUser] = useState({
     name: 'Default',
     email: 'default@gmail.com',
@@ -25,6 +22,7 @@ const DashBoard = () => {
   const [eventsData, setEventsData] = useState([]);
   const [teamData, setTeamData] = useState([]);
   const [showForm, setShowForm] = useState(0);
+  const [token, setToken] = useState('');
   const [edit, setEdit] = useState(0);
   const [editing, setEditing] = useState({
     id: null,
@@ -39,7 +37,7 @@ const DashBoard = () => {
   useEffect(() => {
     newUser = JSON.parse(window.sessionStorage.getItem('profileData'));
     setUser(newUser);
-    // setToken(newUser.token);
+    setToken(newUser.token);
     axios
       .get('http://udyam.pythonanywhere.com/api/events/')
       .then((res) => {
@@ -102,7 +100,7 @@ const DashBoard = () => {
         // headers: {
         //   Authorization: `Basic ${token}`
         // }
-        headers: { Authorization: 'Token ' + newUser.token }
+        headers: { Authorization: `Token ${token}` }
       })
       .then((res) => {
         console.log(res.data);
@@ -139,7 +137,7 @@ const DashBoard = () => {
     // console.log(senddata);
     axios
       .patch('http://udyam.pythonanywhere.com/api/team/' + editing.id + '/', senddata, {
-        headers: { Authorization: 'Token ' + newUser.token }
+        headers: { Authorization: `Token ${token}` }
       })
       .then(() => {
         // console.log(res.data);
@@ -166,7 +164,7 @@ const DashBoard = () => {
   const deleteTeam = (id) => {
     axios
       .delete('http://udyam.pythonanywhere.com/api/team/' + id + '/', {
-        headers: { Authorization: 'Token ' + newUser.token }
+        headers: { Authorization: `Token ${token}` }
       })
       .then(() => {
         // console.log(res.data);
