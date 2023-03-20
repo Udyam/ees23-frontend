@@ -32,9 +32,6 @@ const DashBoard = () => {
   const [token, setToken] = useState('');
   useEffect(() => {
     var newUser = JSON.parse(window.sessionStorage.getItem('profileData'));
-    // var newUser = { name: 'Ankur Agrawal', email: 'ankur.agrawal.ece20@itbhu.ac.in', college: 'IIT BHU', year: 'Part III', phone: '1234567890', referral: 'default#EES-10000', radianite_points: 0, token: 'd221d7afdf288fc097ff321d77154de4b3b6a24e' };
-    // window.sessionStorage.setItem('profileData', newUser);
-
     setUser(newUser);
     setToken(newUser.token);
     axios
