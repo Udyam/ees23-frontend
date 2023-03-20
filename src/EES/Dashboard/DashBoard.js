@@ -7,11 +7,16 @@ import axios from 'axios';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { FaEdit } from 'react-icons/fa';
+import { TiTick } from 'react-icons/ti';
+// import { ImCross } from 'react-icons/im';
+import { RxCross2 } from 'react-icons/rx';
 import { RiDeleteBin5Line } from 'react-icons/ri';
+// import { confirmAlert } from 'react-confirm-alert';
+// import CustomUI from './CustomUi';
 
 const DashBoard = () => {
-  // var newUser = { name: 'Default', email: 'ankur.agrawal.ece20@itbhu.ac.in', college: 'null', year: 'Part II', phone: '1234567890', referral: 'default#EES-10000', radianite_points: 0, token: 'd221d7afdf288fc097ff321d77154de4b3b6a24e' };
-  // window.sessionStorage.setItem('profileData', JSON.stringify(newUser));
+  var newUser = { name: 'Default', email: 'ankur.agrawal.ece20@itbhu.ac.in', college: 'null', year: 'Part II', phone: '1234567890', referral: 'default#EES-10000', radianite_points: 0, token: 'd221d7afdf288fc097ff321d77154de4b3b6a24e' };
+  window.sessionStorage.setItem('profileData', JSON.stringify(newUser));
 
   const [user, setUser] = useState({
     name: 'Default',
@@ -26,6 +31,7 @@ const DashBoard = () => {
   const [teamData, setTeamData] = useState([]);
   const [showForm, setShowForm] = useState(0);
   const [edit, setEdit] = useState(0);
+  const [delete1, setDelete] = useState(0);
   const [editing, setEditing] = useState({
     id: null,
     event: null,
@@ -35,7 +41,7 @@ const DashBoard = () => {
     member2: ''
   });
   // const [token, setToken] = useState('');
-  var newUser;
+  // var newUser;
   useEffect(() => {
     newUser = JSON.parse(window.sessionStorage.getItem('profileData'));
     setUser(newUser);
@@ -163,7 +169,11 @@ const DashBoard = () => {
         });
       });
   };
+  const deleteConfirm = () => {
+    setDelete(1);
+  };
   const deleteTeam = (id) => {
+    setDelete(0);
     axios
       .delete('http://udyam.pythonanywhere.com/api/team/' + id + '/', {
         headers: { Authorization: 'Token ' + newUser.token }
@@ -274,13 +284,17 @@ const DashBoard = () => {
                           }, 500);
                         }}
                       />
-                      <RiDeleteBin5Line
-                        className="team-btn"
-                        onClick={() => {
-                          deleteTeam(e.id);
-                        }}
-                      />
+                      <RiDeleteBin5Line className="team-btn" onClick={deleteConfirm} />
                     </div>
+                    {delete1 === 1 && (
+                      <div>
+                        <div className="delete-text">Are you sure you want to delete the team?</div>
+                        <div className="delete-box">
+                          <TiTick className="delete-item" onClick={() => deleteTeam(e.id)} />
+                          <RxCross2 className="delete-item" onClick={() => setDelete(0)} />
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}
