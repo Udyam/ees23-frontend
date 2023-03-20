@@ -39,7 +39,7 @@ const DashBoard = () => {
     member2: ''
   });
   // const [token, setToken] = useState('');
-  // var newUser;
+  var newUser;
   useEffect(() => {
     newUser = JSON.parse(window.sessionStorage.getItem('profileData'));
     setUser(newUser);
