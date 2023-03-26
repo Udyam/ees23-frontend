@@ -269,7 +269,7 @@ const DashBoard = () => {
           {/* teams section */}
           <div className="Teams">
             <h1 className="team-heading">Teams</h1>
-            <div className="teams-row">
+            <div className="row">
               {teamData.map((e) => (
                 <div key={e.id} className="teams-column">
                   <div className="teamcard" key={e.id}>
@@ -279,9 +279,11 @@ const DashBoard = () => {
                     <div className="team-info">
                       <h1 className="team-info-event-name">{e.event}</h1>
                       <h2 className="team-info-team-name">{e.teamname}</h2>
-                      <h4 className="team-info-teammember-name">{e.leader}</h4>
-                      <h4 className="team-info-teammember-name">{e.member1}</h4>
-                      <h4 className="team-info-teammember-name">{e.member2}</h4>
+                      <div style={{ overflow: 'scroll' }}>
+                        <h4 className="team-info-teammember-name">{e.leader}</h4>
+                        <h4 className="team-info-teammember-name">{e.member1}</h4>
+                        <h4 className="team-info-teammember-name">{e.member2}</h4>
+                      </div>
                     </div>
                     <div className="team-btns">
                       <FaEdit
