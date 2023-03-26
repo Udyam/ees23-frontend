@@ -410,6 +410,7 @@ select {
   align-items: center;
   text-align: center;
   color: #5b2ed3;
+  margin-left: 10%;
 }
 @media (max-width: 468px) {
   .dashboard-main {

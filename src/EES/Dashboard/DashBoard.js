@@ -58,8 +58,9 @@ const DashBoard = () => {
       year: 'Part II',
       phone: '1234567890',
       referral: 'default#EES-10000',
-      radianite_points: 0
-    }
+      radianite_points: 0,
+      token: 'e7cb8b929b94cedf2f0d356f526150f6c741fa2e'
+    };
     setUser(newUser);
     setToken(newUser.token);
     axios
@@ -70,17 +71,15 @@ const DashBoard = () => {
         // console.log(eventsData);
       })
       .catch((error) => console.log(error));
-
-  //   axios
-  //     .get('https://ees23.pythonanywhere.com/api/teams/user/', { headers: { Authorization: 'Token ' + newUser.token } })
-  //     .then((res) => {
-  //       console.log(res);
-  //       setTeamData(res.data);
-  //       // console.log(teamData);
-  //     })
-  //     .catch((error) => console.log(error));
-  // }
-  // , []);
+    axios
+      .get('https://ees23.pythonanywhere.com/api/teams/user/', { headers: { Authorization: 'Token ' + newUser.token } })
+      .then((res) => {
+        console.log(res);
+        setTeamData(res.data);
+        // console.log(teamData);
+      })
+      .catch((error) => console.log(error));
+  }, [teamData]);
 
   const [event, setEvent] = useState('Mosaic');
   const registerHandler = (i) => {
