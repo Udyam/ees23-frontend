@@ -50,17 +50,8 @@ const DashBoard = () => {
   });
   // const [token, setToken] = useState('');
   useEffect(() => {
-    // var newUser = JSON.parse(window.sessionStorage.getItem('profileData'));
-    var newUser = {
-      name: 'Default',
-      email: 'default@gmail.com',
-      college: 'null',
-      year: 'Part II',
-      phone: '1234567890',
-      referral: 'default#EES-10000',
-      radianite_points: 0,
-      token: 'e7cb8b929b94cedf2f0d356f526150f6c741fa2e'
-    };
+    var newUser = JSON.parse(window.sessionStorage.getItem('profileData'));
+
     setUser(newUser);
     setToken(newUser.token);
     axios
