@@ -175,6 +175,14 @@ const DashBoard = () => {
           });
         });
       });
+    axios
+      .get('https://ees23.pythonanywhere.com/api/teams/user/', { headers: { Authorization: 'Token ' + user.token } })
+      .then((res) => {
+        console.log(res);
+        setTeamData(res.data);
+        // console.log(teamData);
+      })
+      .catch((error) => console.log(error));
   };
   const deleteConfirm = () => {
     setDelete(1);
